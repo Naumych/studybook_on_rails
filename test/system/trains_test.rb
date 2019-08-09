@@ -14,7 +14,7 @@ class TrainsTest < ApplicationSystemTestCase
     visit trains_url
     click_on "New Train"
 
-    fill_in "Title", with: @train.title
+    fill_in "Number", with: @train.number
     click_on "Create Train"
 
     assert_text "Train was successfully created"
@@ -25,7 +25,7 @@ class TrainsTest < ApplicationSystemTestCase
     visit trains_url
     click_on "Edit", match: :first
 
-    fill_in "Title", with: @train.title
+    fill_in "Number", with: @train.number
     click_on "Update Train"
 
     assert_text "Train was successfully updated"
