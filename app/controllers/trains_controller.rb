@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TrainsController < ApplicationController
-  before_action :set_train, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: %i[show edit update destroy]
 
   # GET /trains
   # GET /trains.json
@@ -9,8 +11,7 @@ class TrainsController < ApplicationController
 
   # GET /trains/1
   # GET /trains/1.json
-  def show
-  end
+  def show; end
 
   # GET /trains/new
   def new
@@ -18,8 +19,7 @@ class TrainsController < ApplicationController
   end
 
   # GET /trains/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /trains
   # POST /trains.json
@@ -62,13 +62,14 @@ class TrainsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_train
-      @train = Train.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def train_params
-      params.require(:train).permit(:number)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_train
+    @train = Train.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def train_params
+    params.require(:train).permit(:number)
+  end
 end
