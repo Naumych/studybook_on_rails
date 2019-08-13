@@ -1,7 +1,5 @@
 class CreateTicket < ActiveRecord::Migration[5.2]
   def change
-    create_table :tickets do |t|
-      t.timestamps
-    end
+    create_table :tickets, &:timestamps
   end
 end
