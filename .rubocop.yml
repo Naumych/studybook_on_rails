@@ -1,6 +1,6 @@
-require:
-  - rubocop-rails
-  - rubocop-rspec
+# require:
+#   - rubocop-rails
+#   - rubocop-rspec
 
 Style/FrozenStringLiteralComment:
   Enabled: false

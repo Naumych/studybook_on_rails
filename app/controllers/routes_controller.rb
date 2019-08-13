@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RoutesController < ApplicationController
-  before_action :set_route, only: %i[show edit update destroy]
+  before_action :set_route, only: [:show, :edit, :update, :destroy]
   def index
     @routes = Route.all
   end
