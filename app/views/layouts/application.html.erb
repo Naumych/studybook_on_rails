@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <%= link_to 'Home', root_path %>
+
     <%= yield %>
   </body>
+
+  <footer class="page-footer font-small red pt-4">
+    <div class="footer-copyright text-center py-3">© 2018 Наумычева Ксения. Учебный проект в <%= link_to 'школе Studybook', "http://study.ruby.nixdev.co" %>.
+    </div>
+  </footer>
 </html>
