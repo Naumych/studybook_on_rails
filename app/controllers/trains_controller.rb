@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TrainsController < ApplicationController
-  before_action :set_train, only: %i[show edit update destroy]
+  before_action :set_train, only: [:show, :edit, :update, :destroy]
 
   # GET /trains
   # GET /trains.json
