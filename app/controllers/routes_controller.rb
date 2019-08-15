@@ -34,7 +34,7 @@ class RoutesController < ApplicationController
 
   def destroy
     @route.destroy
-    redirect_to routes_path
+    redirect_to routes_path, notice: 'Route was successfully destroyed.'
   end
 
   private
