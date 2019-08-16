@@ -15,14 +15,12 @@ class Train < ApplicationRecord
   def carriages_number_depending_on_type(carriage_type)
     carriages_depending_on_type(carriage_type).size
   end
-end
 
-class Array
-  def top_seats_count
-    sum(&:top_seats_count)
+  def top_seats_count(carriage_type)
+    carriages_depending_on_type(carriage_type).sum(&:top_seats_count)
   end
 
-  def lower_seats_count
-    sum(&:lower_seats_count)
+  def lower_seats_count(carriages)
+    carriages_depending_on_type(carriage_type).sum(&:lower_seats_count)
   end
 end
