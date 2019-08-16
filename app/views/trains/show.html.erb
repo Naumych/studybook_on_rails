@@ -17,19 +17,19 @@
 <table border="1">
   <tr>
     <th>Econom-class carriages count: </th>
-    <td><%= @train.carriages_number_depending_on_type('econom-class') %></td>
+    <td><%= Carriage.where(carriage_type: 'econom-class', train_id: @train.id ).size %></td>
     <td>top seats count </td>
-    <td><%= @train.carriages_depending_on_type('econom-class').top_seats_count%></td>
+    <td><%= Carriage.where(carriage_type: 'econom-class', train_id: @train.id ).sum(&:top_seats_count) %></td>
     <td>lower seats count </td>
-    <td><%= @train.carriages_depending_on_type('econom-class').lower_seats_count%></td>
+    <td><%= Carriage.where(carriage_type: 'econom-class', train_id: @train.id ).sum(&:lower_seats_count) %></td>
   </tr>
   <tr>
     <th>Compartment carriages count: </th>
-    <td><%= @train.carriages_number_depending_on_type( 'compartment') %></td>
+    <td><%= Carriage.where(carriage_type: 'compartment', train_id: @train.id ).size %></td>
     <td>top seats count </td>
-    <td><%= @train.carriages_depending_on_type('compartment').top_seats_count %></td>
+    <td><%= Carriage.where(carriage_type: 'compartment', train_id: @train.id ).sum(&:top_seats_count) %></td>
     <td>lower seats count </td>
-    <td><%= @train.carriages_depending_on_type('compartment').lower_seats_count %></td>
+    <td><%= Carriage.where(carriage_type: 'compartment', train_id: @train.id ).sum(&:lower_seats_count) %></td>
   </tr>
 </table>
 
