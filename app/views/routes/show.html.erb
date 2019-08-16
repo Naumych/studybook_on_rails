@@ -4,6 +4,18 @@
   <strong>Name:</strong>
   <%= @route.name %>
 </p>
+<p>
+  <strong>Trains on the route: </strong>
+  <% if @route.trains.present? %>
+    <ul>
+      <% @route.trains.each do |train| %>
+        <li><%= train.number %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    No trains
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
