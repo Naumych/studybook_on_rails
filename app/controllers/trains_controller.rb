@@ -42,6 +42,7 @@ class TrainsController < ApplicationController
 
   def set_train
     @train = Train.find(params[:id])
+    @train.train_carriages_info
   end
 
   def train_params
