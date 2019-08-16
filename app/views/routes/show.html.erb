@@ -8,9 +8,9 @@
   <strong>Trains on the route: </strong>
   <% if @route.trains.present? %>
     <ul>
-    <% @route.trains.each do |train| %>
-      <li><%= train.number %></li>
-    <% end %>
+      <% @route.trains.each do |train| %>
+        <li><%= train.number %></li>
+      <% end %>
     </ul>
   <% else %>
     No trains
