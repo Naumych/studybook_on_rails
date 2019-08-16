@@ -14,33 +14,5 @@
   <% end %>
 </p>
 
-<% econom_class = @train.carriages.select { |car| car.carriage_type  == 'econom-class'} %>
-
-<table border="1">
-  <tr>
-    <th>Econom-class carriages count: </th>
-    <td><%= econom_class.size %></td>
-    <td>top seats count </td>
-    <td><%= @train.carriages.select { |car| car.top_seats_count  == 'econom-class'}.size</td>
-
-  </tr>
-  <tr>
-    <th>Compartment carriages count: </th>
-    <td><%= @train.carriages.select { |car| car.carriage_type  == 'compartment'}.size %></td>
-  </tr>
-
-</table>
-
-<p>
-  <strong>Econom-class carriages count: </strong>
-  <%= @train.carriages.select { |car| car.carriage_type  == 'econom-class'}.size %>
-</p>
-
-<p>
-  <strong>Compartment carriages count: </strong>
-  <%= @train.carriages.select { |car| car.carriage_type  == 'compartment'}.size %>
-</p>
-
-
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
