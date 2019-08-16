@@ -14,28 +14,23 @@
   <% end %>
 </p>
 
-
 <table border="1">
   <tr>
     <th>Econom-class carriages count: </th>
-    <td><%= @train.carriages_depending_on_type(@train.carriages,'econom-class').size %></td>
+    <td><%= @train.carriages_number_depending_on_type('econom-class') %></td>
     <td>top seats count </td>
-    <td><%= @train.seats_count_in_all_carriages(@train.carriages, 'econom-class', 'top_seats')%></td>
+    <td><%= @train.carriages_depending_on_type('econom-class').top_seats_count%></td>
     <td>lower seats count </td>
-    <td><%= @train.seats_count_in_all_carriages(@train.carriages, 'econom-class', 'lower_seats')%></td>
-
-
+    <td><%= @train.carriages_depending_on_type('econom-class').lower_seats_count%></td>
   </tr>
   <tr>
     <th>Compartment carriages count: </th>
-    <td><%= @train.carriages_depending_on_type(@train.carriages, 'compartment').size %></td>
+    <td><%= @train.carriages_number_depending_on_type( 'compartment') %></td>
     <td>top seats count </td>
-    <td><%= @train.seats_count_in_all_carriages(@train.carriages, 'compartment', 'top_seats')%></td>
+    <td><%= @train.carriages_depending_on_type('compartment').top_seats_count %></td>
     <td>lower seats count </td>
-    <td><%= @train.seats_count_in_all_carriages(@train.carriages, 'compartment', 'lower_seats')%></td>
-
+    <td><%= @train.carriages_depending_on_type('compartment').lower_seats_count %></td>
   </tr>
-
 </table>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |

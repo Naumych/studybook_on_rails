@@ -8,19 +8,21 @@ class Train < ApplicationRecord
   has_many :tickets
   has_many :carriages
 
-  def carriages_depending_on_type(carriages, carriage_type)
-    carriages.select { |car| car.carriage_type == carriage_type }
+  def carriages_depending_on_type(carriage_type)
+    carriages.select { |carriage| carriage.carriage_type == carriage_type }
   end
 
-  # carriage_type = 'econom_class'/'compartment', seats_level = top_seats/lower_seats
-  def seats_count_in_all_carriages(carriages, carriage_type, seats_level)
-    carriages = carriages_depending_on_type(carriages, carriage_type)
-    carriages.sum do |car|
-      if seats_level == 'top_seats'
-        car.top_seats_count
-      elsif seats_level == 'lower_seats'
-        car.lower_seats_count
-      end
-    end
+  def carriages_number_depending_on_type(carriage_type)
+    carriages_depending_on_type(carriage_type).size
+  end
+end
+
+class Array
+  def top_seats_count
+    sum(&:top_seats_count)
+  end
+
+  def lower_seats_count
+    sum(&:lower_seats_count)
   end
 end
