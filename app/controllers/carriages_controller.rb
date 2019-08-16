@@ -37,6 +37,22 @@ class CarriagesController < ApplicationController
     redirect_to carriages_path, notice: 'Carriage was successfully destroyed.'
   end
 
+  def forming_carriage_type_array(carriage_type)
+    @train.carriages.select { |car| car.carriage_type == carriage_type }
+  end
+
+  # carriage_type = 'econom_class'/'compartment', seats_level = top_seats/lower_seats
+  def seats_count_in_all_carriages(carriage_type, seats_level)
+    carriages = forming_carriage_type_array(carriage_type)
+    carriages.sum do |car|
+      if seats_level == 'top_seats'
+        car.top_seats_count
+      elsif seats_level == 'lower_seats'
+        car.lower_seats_count
+      end
+    end
+  end
+
   private
 
   def set_carriage
