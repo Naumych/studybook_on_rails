@@ -7,7 +7,9 @@ class TrainsController < ApplicationController
     @trains = Train.all
   end
 
-  def show; end
+  def show
+    @train_carriages = @train.train_carriages_info
+  end
 
   def new
     @train = Train.new
@@ -42,7 +44,6 @@ class TrainsController < ApplicationController
 
   def set_train
     @train = Train.find(params[:id])
-    @train.train_carriages_info
   end
 
   def train_params
