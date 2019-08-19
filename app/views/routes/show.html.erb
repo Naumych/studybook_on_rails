@@ -17,5 +17,30 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Stations:</strong>
+  <% if @route.railway_stations.empty? %>
+    No stations
+  <% else %>
+    <table>
+      <thead>
+      <tr>
+        <td width="100px">Title</td>
+        <td>Position</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @route.railway_stations.ordered.each do |station| %>
+          <tr>
+            <td><%= station.title %></td>
+            <td>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

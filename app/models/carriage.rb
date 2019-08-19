@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 class Carriage < ApplicationRecord
-  validates :carriage_type, presence: true
   belongs_to :train
 
-  CARRIAGE_TYPES = %w[compartment econom-class].freeze
+  validates :number, :top_seats, :bottom_seats, presence: true
+
+  scope :economy, -> { where(type: 'EconomyCarriage') }
+  scope :coupe, -> { where(type: 'CoupeCarriage') }
+  scope :ordered, -> { order(:number) }
 
   def self.carriage_types
-    CARRIAGE_TYPES
+    %w[compartment econom-class]
   end
 end
