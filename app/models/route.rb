@@ -17,8 +17,6 @@ class Route < ApplicationRecord
   end
 
   def stations_count
-    if railway_stations.size < 2
-      errors.add(:base, "Route should contain at least 2 stations")
-    end
+    errors.add(:base, 'Route should contain at least 2 stations') if railway_stations.size < 2
   end
 end

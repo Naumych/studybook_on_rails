@@ -1,2 +1,2 @@
-class EconomyCarriage < Carriage
+class CoupeCarriage < Carriage
 end
