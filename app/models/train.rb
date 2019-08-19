@@ -12,8 +12,8 @@ class Train < ApplicationRecord
     train_carriages = {}
     Carriage.carriage_types.each do |type|
       carriages_by_type = carriages.select { |carriage| carriage.carriage_type == type }
-      train_carriages[type] = { top_seats_count: carriages_by_type.sum(&:top_seats_count),
-                                lower_seats_count: carriages_by_type.sum(&:lower_seats_count),
+      train_carriages[type] = { top_seats: carriages_by_type.sum(&:top_seats),
+                                bottom_seats: carriages_by_type.sum(&:bottom_seats),
                                 size: carriages_by_type.size }
     end
     train_carriages
