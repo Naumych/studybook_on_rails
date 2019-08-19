@@ -12,7 +12,7 @@ class RailwayStation < ApplicationRecord
 
   def update_position(route, position)
     station_route = station_route(route)
-    station_route.update(position: position) if station_route
+    station_route&.update(position: position)
   end
 
   def position_in(route)
