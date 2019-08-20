@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% render 'common/errors', resourse: @railway_station %>
+
 <p>
   <strong>Title:</strong>
   <%= @railway_station.title %>
@@ -10,7 +12,7 @@
 <%else%>
   <p>Station included in these routes:</p>
   <ul>
-    <% @railway_station.route.each do |route| %>
+    <% @railway_station.routes.each do |route| %>
       <li><%= route.name %></li>
     <%end%>
   </ul>
