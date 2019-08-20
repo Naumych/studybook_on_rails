@@ -7,7 +7,9 @@ class TrainsController < ApplicationController
     @trains = Train.all
   end
 
-  def show; end
+  def show
+    @train_carriages = @train.train_carriages_info
+  end
 
   def new
     @train = Train.new

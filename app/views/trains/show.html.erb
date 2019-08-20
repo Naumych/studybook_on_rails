@@ -14,5 +14,30 @@
   <% end %>
 </p>
 
+<p>
+  <% if @train_carriages.present? %>
+    <table border="1">
+      <tr>
+        <th>Econom-class carriages count: </th>
+        <td><%= @train_carriages['econom-class'][:size] %></td>
+        <td>top seats count </td>
+        <td><%= @train_carriages['econom-class'][:top_seats_count] %></td>
+        <td>lower seats count </td>
+        <td><%= @train_carriages['econom-class'][:lower_seats_count] %></td>
+      </tr>
+      <tr>
+        <th>Compartment carriages count: </th>
+        <td><%= @train_carriages['compartment'][:size] %></td>
+        <td>top seats count </td>
+        <td><%= @train_carriages['compartment'][:top_seats_count] %></td>
+        <td>lower seats count </td>
+        <td><%= @train_carriages['compartment'][:lower_seats_count] %></td>
+      </tr>
+    </table>
+  <% else %>
+    No carriages
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
