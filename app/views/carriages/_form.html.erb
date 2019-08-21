@@ -1,5 +1,5 @@
-<%= form_with(model: @carriage.becomes(Carriage), local: true) do |form| %>
-  <% render 'common/errors', resourse: @carriage %>
+<%= form_with(model: carriage.becomes(Carriage), local: true) do |form| %>
+  <%= render 'common/errors', resourse: carriage %>
 
   <div class="field">
     <%= form.label :number %>
@@ -30,6 +30,12 @@
     <%= form.label :side_bottom_seats %>
     <%= form.text_field :side_bottom_seats %>
   </div>
+
+  <div class="field">
+    <%= form.label :seats %>
+    <%= form.text_field :seats %>
+  </div>
+
 
   <div class="field">
     <%= form.label :train, 'Train' %>
