@@ -8,26 +8,22 @@ class RailwayStationsRoute < ApplicationRecord
   # validates :position, uniqueness: { scope: :route_id }
 
   after_create :add_position
+  # after_update :update_position
 
-  # private
-
-  # def add_position
-  #   select('railway_stations').where(route_id: route_id)
-  # end
+  private
 
   def add_position
-    if route.railway_stations_routes.where(position: true).present?
-      binding.pry
+    position_present = RailwayStationsRoute.where('position > 0')
+    self.position = if position_present.present?
+                      position_present.map(&:position).max + 1
+                    else
+                      1
+                    end
+    save
+  end
 
-      max_position = route.railway_stations_routes.map(&:position).max
-      update(position: max_position + 1)
-    else
-      binding.pry
-      route.railway_stations_routes.each_with_index do |station, index|
-        binding.pry
-        station.update(position: index + 1)
-      end
-    end
+  def update_position
+
   end
 end
 # route.railway_stations_routes.where(position: true).
