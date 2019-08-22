@@ -16,34 +16,10 @@
 
 <p>
   <strong>Carriages of train</strong>
-  <p>
-    <%= check_box_tag(:tail_ordered) %>
-    <%= label_tag(:tail_ordered, "I own a dog") %>
-    
-    <%= radio_button_tag(:order, 'head') %>
-    <%= label_tag(:order_head, "Head carraige numbering") %>
-    <%= radio_button_tag(:order, 'tail') %>
-    <%= label_tag(:order_tail, "Tail carraige numbering") %>
-  </p>
-
-  <% @train.carriages.each do |carriage| %>
+  <% @train.ordered.each do |carriage| %>
     <p><%= link_to "Carriage№#{carriage.number_in_train}", carriage_path(carriage) %></p>
   <% end %>
 </p>
-
-<table border="1">
-  <% @train_carriages.each do |type, count_values |%>
-    <td>
-      <th><%= "#{type}" %> counts: </th>
-    </td>
-      <% count_values.each do |seat, count| %>
-      <tr>
-            <th><%= "#{seat}:" %></th>
-            <th><%= "#{count}" %></th>
-      </tr>
-      <% end %>
-  <% end %>
-</table>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

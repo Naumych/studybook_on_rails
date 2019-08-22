@@ -2,6 +2,11 @@
   <%= render 'common/errors', resourse: @train %>
 
   <div class="field">
+    <%= check_box_tag(:sort) %>
+    <%= label_tag(:sort, "From head") %>
+  </div>
+
+  <div class="field">
     <%= form.label :number %>
     <%= form.number_field :number %>
   </div>
