@@ -8,7 +8,7 @@ class TrainsController < ApplicationController
   end
 
   def show
-    @train_carriages = @train.train_carriages_info
+    # @train_carriages = @train.train_carriages_info
   end
 
   def new
@@ -47,6 +47,6 @@ class TrainsController < ApplicationController
   end
 
   def train_params
-    params.require(:train).permit(:number, :current_station_id, :route_id)
+    params.require(:train).permit(:number, :current_station_id, :route_id, :sort)
   end
 end

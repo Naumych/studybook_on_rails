@@ -9,8 +9,8 @@ class Carriage < ApplicationRecord
   # scope :coupe, -> { where(type: 'CoupeCarriage') }
   # scope :sv, -> { where(type: 'SVCarriage') }
   # scope :seated, -> { where(type: 'SeatedCarriage') }
-  scope :head_ordered, -> { where(train_id: train_id).order(:number_in_train) }
-  scope :tail_ordered, -> { where(train_id: train_id).order(number_in_train: :desc) }
+  # scope :head_ordered, -> { where(train_id: train_id).order(:number_in_train) }
+  # scope :tail_ordered, -> { where(train_id: train_id).order(number_in_train: :desc) }
 
   after_create :add_number_in_train
 
