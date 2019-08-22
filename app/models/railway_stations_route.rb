@@ -22,8 +22,6 @@ class RailwayStationsRoute < ApplicationRecord
     save
   end
 
-  def update_position
-
-  end
+  def update_position; end
 end
 # route.railway_stations_routes.where(position: true).

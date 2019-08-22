@@ -21,7 +21,7 @@ class Carriage < ApplicationRecord
   def add_number_in_train
     carriages_in_train = Carriage.where(train_id: train_id)
     Carriage.where(number_in_train: true)
-    number_in_train_presented = carriages_in_train.select{ |carriage| carriage.number_in_train.present? }
+    number_in_train_presented = carriages_in_train.select { |carriage| carriage.number_in_train.present? }
 
     # number_in_train_presented = Carriage.where(number_in_train: true)
     self.number_in_train = if number_in_train_presented.present?
