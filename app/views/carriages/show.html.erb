@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <table><strong>Carriage info:</strong>
-  <tr><td>Id - <%= @carriage.number %></td></tr>
+  <tr><td>Number - <%= @carriage.number %></td></tr>
   <tr><td>Type - <%= @carriage.type %></td></tr>
   <tr><td>Top seats - <%= @carriage.top_seats %></td></tr>
-  <tr><td>Lower seats - <%= @carriage.bottom_seats %></td></tr>
-  <tr><td>Lower seats - <%= @carriage.side_top_seats %></td></tr>
-  <tr><td>Lower seats - <%= @carriage.side_bottom_seats %></td></tr>
-  <tr><td>Train - <%= @carriage.train_id %></td></tr>
+  <tr><td>Bottom seats - <%= @carriage.bottom_seats %></td></tr>
+  <tr><td>Side Top seats - <%= @carriage.side_top_seats %></td></tr>
+  <tr><td>Side Bottom seats - <%= @carriage.side_bottom_seats %></td></tr>
+  <tr><td>Seats - <%= @carriage.seats %></td></tr>
+  <tr><td>Train №- <%= @carriage.train_id %></td></tr>
 </table>
 
 <%= link_to 'Edit', edit_carriage_path(@carriage) %> |

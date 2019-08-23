@@ -8,6 +8,10 @@ class Train < ApplicationRecord
   has_many :tickets
   has_many :carriages
 
+  def seats_count(carriage_type, *args)
+    args.each { |seat_type| puts "Sum of #{seat_type} - #{carriages.where(type: carriage_type).sum(&seat_type.to_sym)}" }
+  end
+
   def train_carriages_info
     train_carriages = {}
     Carriage.carriage_types.each do |type|
@@ -23,9 +27,9 @@ class Train < ApplicationRecord
 
   def ordered
     if sort
-      carriages.order(:number_in_train)
-    else
       carriages.order(number_in_train: :desc)
+    else
+      carriages.order(:number_in_train)
     end
   end
 end

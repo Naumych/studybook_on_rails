@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_08_22_175556) do
     t.datetime "updated_at", null: false
     t.integer "current_station_id"
     t.integer "route_id"
-    t.boolean "sort", default: true
+    t.boolean "sort", default: false
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
