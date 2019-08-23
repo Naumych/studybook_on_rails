@@ -1,6 +1,7 @@
 <tr>
   <td><%= carriage.number %></td>
   <td><%= carriage.type %></td>
+  <td><%= "№#{carriage.train.number}" %></td>
   <td><%= link_to 'Show', link_to(carriage.train.number, controller: "carriages", action: "show", id: carriage) %></td>
   <td><%= link_to 'Edit', edit_carriage_path(carriage) %></td>
   <td><%= link_to 'Destroy', { :controller => 'carriages', :action => 'destroy', :id => carriage },

@@ -21,5 +21,19 @@
   <% end %>
 </p>
 
+<table border="1">
+  <% @train_carriages.each do |type, count_values |%>
+    <td>
+      <th><%= "#{type}" %> counts: </th>
+    </td>
+      <% count_values.each do |seat, count| %>
+      <tr>
+            <th><%= "#{seat}:" %></th>
+            <th><%= "#{count}" %></th>
+      </tr>
+      <% end %>
+  <% end %>
+</table>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
