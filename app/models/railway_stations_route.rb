@@ -5,10 +5,8 @@ class RailwayStationsRoute < ApplicationRecord
   belongs_to :route
 
   validates :railway_station_id, uniqueness: { scope: :route_id }
-  # validates :position, uniqueness: { scope: :route_id }
 
   after_create :add_position
-  # after_update :update_position
 
   private
 
@@ -24,4 +22,3 @@ class RailwayStationsRoute < ApplicationRecord
 
   def update_position; end
 end
-# route.railway_stations_routes.where(position: true).

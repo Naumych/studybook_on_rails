@@ -5,11 +5,6 @@ class Carriage < ApplicationRecord
 
   validates :number, presence: true
 
-  scope :economy, -> { where(type: 'EconomyCarriage') }
-  scope :coupe, -> { where(type: 'CoupeCarriage') }
-  scope :sv, -> { where(type: 'SVCarriage') }
-  scope :seated, -> { where(type: 'SeatedCarriage') }
-
   after_create :add_number_in_train
 
   def self.carriage_types
