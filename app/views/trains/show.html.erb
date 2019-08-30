@@ -15,29 +15,25 @@
 </p>
 
 <p>
-  <% if @train_carriages.present? %>
-    <table border="1">
-      <tr>
-        <th>Econom-class carriages count: </th>
-        <td><%= @train_carriages['econom-class'][:size] %></td>
-        <td>top seats count </td>
-        <td><%= @train_carriages['econom-class'][:top_seats_count] %></td>
-        <td>lower seats count </td>
-        <td><%= @train_carriages['econom-class'][:lower_seats_count] %></td>
-      </tr>
-      <tr>
-        <th>Compartment carriages count: </th>
-        <td><%= @train_carriages['compartment'][:size] %></td>
-        <td>top seats count </td>
-        <td><%= @train_carriages['compartment'][:top_seats_count] %></td>
-        <td>lower seats count </td>
-        <td><%= @train_carriages['compartment'][:lower_seats_count] %></td>
-      </tr>
-    </table>
-  <% else %>
-    No carriages
+  <strong>Carriages of train</strong>
+  <% @train.ordered.each do |carriage| %>
+    <p><%= link_to "Carriage№#{carriage.number_in_train}", carriage_path(carriage) %></p>
   <% end %>
 </p>
+
+<table border="1">
+  <% @train_carriages.each do |type, count_values |%>
+    <td>
+      <th><%= "#{type}" %> counts: </th>
+    </td>
+      <% count_values.each do |seat, count| %>
+        <tr>
+          <th><%= "#{seat}:" %></th>
+          <th><%= "#{count}" %></th>
+        </tr>
+      <% end %>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
