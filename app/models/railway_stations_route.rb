@@ -12,13 +12,11 @@ class RailwayStationsRoute < ApplicationRecord
 
   def add_position
     position_present = RailwayStationsRoute.where('position > 0')
-    self.position = if position_present.present?
-                      position_present.map(&:position).max + 1
-                    else
-                      1
-                    end
-    save
+    if position_present.present?
+      new_position = position_present.map(&:position).max + 1
+      update(position: new_position)
+    else
+      update(position: 1)
+    end
   end
-
-  def update_position; end
 end
